@@ -1,0 +1,25 @@
+<div class="app-card">
+  <div class="card">
+    <img
+      src="https://picsum.photos/100/100"
+      class="card-img-top"
+      alt="lorem picsum"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">
+        ID: {{ product.id }}<br />
+        Supplier Id: {{ product.supplierId }}<br />
+        Category Id: {{ product.categoryId }}<br />
+        Quantity Per Unit: {{ product.quantityPerUnit }}<br />
+        Unit Price: {{ product.unitPrice }}<br />
+        Units In Stock: {{ product.unitsInStock }}<br />
+        Units On Order: {{ product.unitsOnOrder }}<br />
+        Reorder Level: {{ product.reorderLevel }}<br />
+      </p>
+      <button class="btn btn-primary" (click)="addToCart(product)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    [class.active]="categoryID == undefined"
+    [routerLink]="['/products']"
+    aria-current="true"
+  >
+    All Categories
+  </li>
+  <li
+    *ngFor="let item of categories"
+    class="list-group-item c-pointer"
+    [class.active]="categoryID == item.id"
+    [routerLink]="['/products', item.id]"
+    aria-current="true"
+  >
+    {{ item.name }}
+  </li>
+</ul>
