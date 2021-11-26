@@ -10,7 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthComponent } from './components/auth/auth.component';
+import { FormsModule } from '@angular/forms';
+import { ErrorInterceptor } from './components/auth/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     LoadingComponent,
     CategoriesComponent,
+    AuthComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
